@@ -5,8 +5,11 @@
     <title>{{ subject_name | title }}</title>
 </head>
 <body>
-    <h1>Welcome to {{ subject_name | title }} course</h1>
-    <h2>{{ text }}</h2>
-
+    <h1>Welcome to {{ subject_name | title }} Subject</h1>
+    {% if text is not None %}
+        <h2>{{ text }}</h2>
+    {% else %}
+        <p>There is no content for this subject yet!</p>
+    {% endif %}
 </body>
 </html>

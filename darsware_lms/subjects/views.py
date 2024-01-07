@@ -6,6 +6,7 @@ subjects_dict = {
     "math": "Welcome to Math courses page",
     "science": "Welcome to Science courses page",
     "ict": "Welcome to ICT courses page",
+    "english": None,
 }
 
 
