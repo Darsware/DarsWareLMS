@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ subject_name | title }}</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block page_title %}
+    {{ subject_name | title }}
+{% endblock %}
+
+{% block content %}
     <h1>Welcome to {{ subject_name | title }} Subject</h1>
     {% if text is not None %}
         <h2>{{ text }}</h2>
     {% else %}
         <p>There is no content for this subject yet!</p>
     {% endif %}
-</body>
-</html>
+{% endblock %}

@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>COURSE</title>
-</head>
-<body>
-    <h1>{{ text }}</h1>
-    <h2>{{ course_name }}</h2>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block page_title %}
+    {{ course_name | title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Welcome to {{ course_name | title }} Course</h1>
+    {% if text is not None %}
+        <h2>{{ text }}</h2>
+    {% else %}
+        <p>There is no content for this course yet!</p>
+    {% endif %}
+{% endblock %}

@@ -28,10 +28,11 @@ print(courses)
 
 # Create index view function
 def index(request):
+    courses_list = list(courses.keys())
     return render(request, "courses/index.html", {
         "subjects": subjects,
         "stages": stages,
-        "courses": courses,
+        "courses": courses_list,
     })
 
 
@@ -47,13 +48,13 @@ def course_description(request, course):
         return HttpResponseNotFound(f"Course '{course}' not found. Please enter a valid course.")
 
 
-def subject_description(request, subject):
-    subject = str(subject).lower()  # convert to lowercase
-    try:
-        subject_text = subjects[subject]
-        return render(request, "courses/subject.html", {
-            "text": subject_text,
-            "subject_name": subject,
-        })
-    except KeyError:
-        return HttpResponseNotFound("This Subject not found")
+# def subject_description(request, subject):
+#     subject = str(subject).lower()  # convert to lowercase
+#     try:
+#         subject_text = subjects[subject]
+#         return render(request, "courses/subject.html", {
+#             "text": subject_text,
+#             "subject_name": subject,
+#         })
+#     except KeyError:
+#         return HttpResponseNotFound("This Subject not found")
