@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Courses List</title>
-	</head>
-	<body>
-		<ul>
-			{% for course in courses %}
-			<li>
-				<a href="{% url 'course_description' course %}">{{ course|title }}</a>
-			</li>
-			{% endfor %}
-		</ul>
-	</body>
-</html>
+{% extends "base.html" %}
+
+{% block page_title %}
+	Courses List
+{% endblock %}
+
+{% block content %}
+	<ul>
+		{% for course in courses %}
+		<li>
+			<a href="{% url 'course_description' course %}">{{ course|title }}</a>
+		</li>
+		{% endfor %}
+	</ul>
+{% endblock %}
