@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import Http404, HttpResponseNotFound
 from django.urls import reverse
 
 
@@ -45,7 +45,7 @@ def course_description(request, course):
             "course_name": course,
         })
     except KeyError:
-        return HttpResponseNotFound(f"Course '{course}' not found. Please enter a valid course.")
+        raise Http404("This Course not found")
 
 
 # def subject_description(request, subject):

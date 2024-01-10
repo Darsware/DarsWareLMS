@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import Http404, HttpResponseNotFound
 
 
 subjects_dict = {
@@ -29,4 +29,5 @@ def subject_description(request, subject):
             "subject_name": subject,
         })
     except KeyError:
-        return HttpResponseNotFound("This Subject not found")
+        raise Http404("This Subject not found")
+
