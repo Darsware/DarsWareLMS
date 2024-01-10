@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block content %}
+{% include "subjects/includes/header.html" %}
+
     <h1>Welcome to {{ subject_name | title }} Subject</h1>
     {% if text is not None %}
         <h2>{{ text }}</h2>

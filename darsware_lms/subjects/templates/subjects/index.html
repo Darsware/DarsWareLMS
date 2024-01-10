@@ -1,5 +1,7 @@
-{% extends "base.html" %} {% block page_title %} Subjects {% endblock %} {%
-block content %}
+{% extends "base.html" %} {% block page_title %} Subjects {% endblock %}
+
+{% block content %}
+{% include "subjects/includes/header.html" %}
 <p>Welcome to ALL subjects page</p>
 <ul>
 	{% for subject in subjects %}
