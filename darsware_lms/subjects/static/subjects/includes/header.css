@@ -1,0 +1,25 @@
+header {
+    width: 100%;
+    height: 5rem;
+    background-color: #6c6c6c;
+}
+
+header nav {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header nav a {
+    color: #b7b5b5;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+header nav a:hover,
+header nav a:active {
+    color: #ec96f5;
+}

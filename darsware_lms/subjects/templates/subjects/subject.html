@@ -1,4 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+	<link rel="stylesheet" href="{% static 'subjects/subjects.css' %}" />
+	<link rel="stylesheet" href="{% static 'subjects/includes/header.css' %}" />
+{% endblock %}
 
 {% block page_title %}
     {{ subject_name | title }}

@@ -10,6 +10,7 @@ ul {
     flex-direction: column;
     flex-wrap: wrap;
     height: 20rem;
+    background-color: aliceblue;
 }
 
 li {
@@ -22,4 +23,14 @@ li {
 
 li:last-of-type {
     border-bottom: none;
+}
+
+li a {
+    text-decoration: none;
+    color: #5c5b5b;
+}
+
+li a:hover,
+li a:active {
+    color: #9610a1;
 }
