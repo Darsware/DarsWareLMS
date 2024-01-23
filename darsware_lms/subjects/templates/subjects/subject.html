@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block css_files %}
-	<link rel="stylesheet" href="{% static 'subjects/subjects.css' %}" />
+	<link rel="stylesheet" href="{% static 'subjects/subject.css' %}" />
 	<link rel="stylesheet" href="{% static 'subjects/includes/header.css' %}" />
 {% endblock %}
 
@@ -17,6 +17,6 @@
     {% if text is not None %}
         <h2>{{ text }}</h2>
     {% else %}
-        <p>There is no content for this subject yet!</p>
+        <p class="fallback">There is no content for this subject yet!</p>
     {% endif %}
 {% endblock %}
