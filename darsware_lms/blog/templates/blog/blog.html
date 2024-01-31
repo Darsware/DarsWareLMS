@@ -6,6 +6,51 @@
 
 
 {% block content %}
-    <h1>Welcome to my blog</h1>
-    <p>Blog content goes here</p>
+    <header id="main-navigation">
+        <h1><a href="">Darsware Blog</a></h1>
+        <nav>
+            <a href="">All Posts</a>
+        </nav>
+    </header>
+
+
+    <section id="welcome">
+        <header>
+            <img src="" alt="Darsware logo" />
+            <h2>Welcome to the Darsware Blog</h2>
+        </header>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+            voluptatum, voluptate, quibusdam, quia voluptas quod quos
+            voluptatibus quae doloribus quidem voluptatem. Quisquam voluptatum,
+            voluptate, quibusdam, quia voluptas quod quos voluptatibus quae
+            doloribus quidem voluptatem.
+        </p>
+    </section>
+
+    <!--Presenting the latest posts from the Darsware Blog-->
+    <section id="latest-posts">
+        <h2>Latest Posts</h2>
+        <ul>
+            <li>
+                <article class="post">
+                    <a href="">
+                        <img src="" alt="Post image" />
+                    </a>
+                    <div class="post__content">
+                        <h3>How to study</h3>
+                        <p>lorem ipsum lorem ipsum</p>
+                    </div>
+
+                </article>
+            </li>
+            <li></li>
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>Darsware Mission</h2>
+        <p>World Class Education for Egyptian Students</p>
+        <p>Darsware provides top of the lien educational content for Egypt's national education</p>
+    </section>
 {% endblock %}
