@@ -40,10 +40,26 @@
   width: 60rem;
   margin: -6rem auto 2rem auto;
   box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.4);
+  text-align: center; /* Add this line */
 }
 
 #latest-posts h2 {
   text-align: center;
+}
+
+.post img {
+  border-radius: 50%; /* Add this line */
+    width: 120px; /* Adjust this value as needed */
+  height: 120px; /* Adjust this value as needed */
+}
+
+.post__content {
+  transition: background-color 0.3s ease, color 0.3s ease; /* This will make the color change smoothly */
+}
+
+.post__content:hover {
+  background-color: #6305dd; /* This is the background color of #main-navigation */
+  color: white;
 }
 
 #latest-posts ul {
