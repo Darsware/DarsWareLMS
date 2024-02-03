@@ -11,14 +11,8 @@
 
 
 {% block content %}
-    <header id="main-navigation">
-        <h1><a href="">Darsware Blog</a></h1>
-        <nav>
-            <a href="">All Posts</a>
-        </nav>
-    </header>
-
-
+{% include "blog/includes/header.html" %}
+    <!--Welcome to the Darsware Blog-->
     <section id="welcome">
         <header>
             <img src="{% static 'blog/images/darsware_logo.png' %}" alt="Darsware logo" />
@@ -36,21 +30,12 @@
     <!--Presenting the latest posts from the Darsware Blog-->
     <section id="latest-posts">
         <h2>Latest Posts</h2>
-                <article class="post">
-                    <a href="">
-                        <img src="{% static 'blog/images/darsware_logo.png' %}" alt="Post image" />
-                        <div class="post__content">
-                            <h3>How to study</h3>
-                            <p>
-                                lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                            </p>
-                        </div>
-                    </a>
-                </article>
-            </li>
+        <ul>
+            {% include "blog/includes/post.html" %}
         </ul>
     </section>
 
+    <!--About Darsware-->
     <section id="about">
         <h2>Darsware Mission</h2>
         <p>World Class Education for Egyptian Students</p>

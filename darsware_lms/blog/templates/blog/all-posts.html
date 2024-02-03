@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+    All Darsware's Posts
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/blog.css' %}" />
+{% endblock %}
+
+
+{% block content %}
+{% include "blog/includes/header.html" %}
+
+<section id="all-posts">
+    <h2>Collected Posts</h2>
+    <ul>
+        {% include "blog/includes/post.html" %}
+    </ul>
+</section>
+
+{% endblock %}
