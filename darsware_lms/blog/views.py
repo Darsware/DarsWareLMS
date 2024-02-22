@@ -2,7 +2,7 @@ from django.shortcuts import render
 from datetime import date
 
 
-posts = [
+all_posts = [
     {
         "slug": "my-first-post",
         "image": "blog/img/blog-post-thumb-1.jpg",
@@ -36,11 +36,11 @@ posts = [
 # Create your views here.
 
 def get_date(post):
-    return post.get("date")
+    return post['date']
 
 
 def starting_page(request):
-    sorted_posts = posts.sort(key=get_date)
+    sorted_posts = sorted(all_posts, key=get_date)
     latest_posts = sorted_posts[-3:]
     return render(request, "blog/blog.html", {
         "posts": latest_posts
@@ -48,7 +48,11 @@ def starting_page(request):
 
 
 def posts(request):
-    return render(request, "blog/all-posts.html")
+    return render(request, "blog/all-posts.html", {
+        "all_posts": all_posts
+    })
+
+
 
 
 def post_detail(request, slug):
