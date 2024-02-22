@@ -1,16 +1,17 @@
-
 <!--load static -->
 {% load static %}
+
+
+
 
 <li>
                 <article class="post">
                     <a href="{% url 'post-detail-page' slug='mission'%}">
                         <img src="{% static 'blog/images/darsware_logo.png' %}" alt="Post image" />
                         <div class="post__content">
-                            <h3>How to study</h3>
+                            <h3>{{ post.title }}</h3>
                             <p>
-                                lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                            </p>
+                                {{ post.excerpt }}                            </p>
                         </div>
                     </a>
                 </article>
