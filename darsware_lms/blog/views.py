@@ -2,10 +2,11 @@ from django.shortcuts import render
 from datetime import date
 
 
+
 all_posts = [
     {
         "slug": "my-first-post",
-        "image": "blog/img/blog-post-thumb-1.jpg",
+        "image": "darsware_logo.png",
         "author": "Mentash",
         "date": date(2024, 2, 10),
         "title": "My first post",
@@ -14,7 +15,7 @@ all_posts = [
     },
     {
         "slug": "my-second-post",
-        "image": "blog/img/blog-post-thumb-2.jpg",
+        "image": "darsware.jpeg",
         "author": "Darsware Member",
         "date": date(2024, 3, 10),
         "title": "My second post",
@@ -23,7 +24,7 @@ all_posts = [
     },
     {
         "slug": "my-third-post",
-        "image": "blog/img/blog-post-thumb-3.jpg",
+        "image": "darsware.jpeg",
         "author": "Darsware Staff",
         "date": date(2024, 4, 10),
         "title": "My third post",
