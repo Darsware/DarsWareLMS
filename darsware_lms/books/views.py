@@ -8,18 +8,18 @@ from .models import Book
 # Create your views here.
 
 
-def index(request):
+def index(request,):
     books = Book.objects.all()
     return render(request, "books/index.html", {
         "books": books
     })
 
-def book_detail(request, id):
+def book_detail(request, slug):
     # try:
     #     book = Book.objects.get(pk=id)
     # except:
     #     raise Http404()
-    book = get_object_or_404(Book, pk=id)
+    book = get_object_or_404(Book, slug=slug)
     return render(request, "books/book_detail.html", {
         "title": book.title,
         "author": book.author,

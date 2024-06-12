@@ -18,7 +18,7 @@ class Book(models.Model):
 
     # Modify & overwrite get_absolute_url method
     def get_absolute_url(self):
-        return reverse("book-detail", args=[str(self.id)])
+        return reverse("book-detail", args=[str(self.slug)])
 
     # Remember:
     # The reverse function is a powerful tool in Django for generating URLs dynamically. 
