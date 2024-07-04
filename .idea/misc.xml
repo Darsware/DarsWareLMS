@@ -3,4 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.11 (Django_5_Env)" />
   </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (DarsWareLMS)" project-jdk-type="Python SDK" />
 </project>

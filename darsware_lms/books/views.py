@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404,render
+from django.shortcuts import get_object_or_404, render
 from django.http import Http404
 
 
@@ -13,6 +13,7 @@ def index(request,):
     return render(request, "books/index.html", {
         "books": books
     })
+
 
 def book_detail(request, slug):
     # try:

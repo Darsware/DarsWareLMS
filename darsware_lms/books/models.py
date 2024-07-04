@@ -1,20 +1,18 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.urls import reverse
-from django.utils.text import slugify # Transforms a string to a slug
-
+from django.utils.text import slugify  # Transforms a string to a slug
 
 
 # Create your models here.
 
-
 class Book(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=50)
     rating = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(5)])
     author = models.CharField(null=True, max_length=100)
     is_bestselling = models.BooleanField(default=False)
-    slug = models.SlugField(default="", null=False) # /books/123 -> /books/harry-potter-1
+    slug = models.SlugField(default="", null=False, db_index=True)  # /books/123 -> /books/harry-potter-1
 
     # Modify & overwrite get_absolute_url method
     def get_absolute_url(self):
@@ -28,8 +26,10 @@ class Book(models.Model):
     # Overwrite the save method
     def save(self, *args, **kwargs):
         # Convert title (string) to a slug
-        self.slug = slugify(self.title) # Ex. "Harry Potter 1" -> "harry-potter-1"
-        # Call the parent's save method
+        # Set slug to value based on title
+        # To make sure that a value other than the default "" slug value default="" is added to the slug field
+        self.slug = slugify(self.title)  # Ex. "Harry Potter 1" -> "harry-potter-1"
+        # Call the parent's save() method
         super().save(*args, **kwargs)
 
     def __str__(self):

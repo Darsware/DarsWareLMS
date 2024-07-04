@@ -127,6 +127,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+Darsware_Env/
 
 # Spyder project settings
 .spyderproject
@@ -163,3 +164,4 @@ cython_debug/
 darsware_lms/.vscode/
 /.idea/codeStyles/codeStyleConfig.xml
 /.idea/csv-editor.xml
+
