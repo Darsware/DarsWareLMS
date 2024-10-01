@@ -8,9 +8,8 @@ from .models import Book
 # Allows to customize the admin panel for the Book model and set options
 # Can overwrite methods and add custom methods of extended class
 class BookAdmin(admin.ModelAdmin):
-    readonly_fields = ("slug",)
+    # readonly_fields = ("slug",) # You need to remove this for the prepopulated_fields to work
     prepopulated_fields = {"slug": ("title",)} # Automatically populate the slug field based on the title field
-
 
 
 # Make django aware of models and register them
