@@ -1,8 +1,15 @@
 from django.contrib import admin
 
-from .models import Book
+from .models import Book, Author
 
 # Register your models here.
+class AuthorAdmin(admin.ModelAdmin):
+    list_display = ("first_name", "last_name",)
+
+
+admin.site.register(Author, AuthorAdmin)
+
+
 
 # Create class admin that extends admin.ModelAdmin
 # Allows to customize the admin panel for the Book model and set options
