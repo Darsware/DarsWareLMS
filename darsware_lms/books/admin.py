@@ -3,11 +3,13 @@ from django.contrib import admin
 from .models import Book, Author
 
 # Register your models here.
+
+# Create class admin that extends admin.ModelAdmin
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ("first_name", "last_name",)
 
 
-admin.site.register(Author, AuthorAdmin)
+
 
 
 
@@ -25,4 +27,4 @@ class BookAdmin(admin.ModelAdmin):
 
 # Make django aware of models and register them
 admin.site.register(Book, BookAdmin)
-
+admin.site.register(Author, AuthorAdmin)
