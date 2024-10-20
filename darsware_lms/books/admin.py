@@ -1,16 +1,12 @@
 from django.contrib import admin
-
-from .models import Book, Author
+from .models import Book, Author, Publisher
 
 # Register your models here.
+
 
 # Create class admin that extends admin.ModelAdmin
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ("first_name", "last_name",)
-
-
-
-
 
 
 # Create class admin that extends admin.ModelAdmin
@@ -24,7 +20,10 @@ class BookAdmin(admin.ModelAdmin):
     list_display = ("title", "author", "rating",) # Display these fields in the admin panel
 
 
-
 # Make django aware of models and register them
 admin.site.register(Book, BookAdmin)
 admin.site.register(Author, AuthorAdmin)
+admin.site.register(Publisher)
+
+
+

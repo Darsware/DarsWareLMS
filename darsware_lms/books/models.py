@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.urls import reverse
-from django.utils.text import slugify  # Transforms a string to a slug
+#from django.utils.text import slugify  # Transforms a string to a slug
 
 
 # Create your models here.
@@ -18,6 +18,11 @@ class Author(models.Model):
         return self.full_name()
     
 
+class Publisher(models.Model):
+    name = models.CharField(max_length=300)
+
+    def __str__(self):
+        return f"{self.name}"
 
 
 class Book(models.Model):
