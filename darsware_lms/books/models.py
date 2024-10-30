@@ -9,7 +9,7 @@ from django.urls import reverse
 
 class Country(models.Model):
     name = models.CharField(max_length=50)
-    code = models.CharField(max_length=2)
+    code = models.CharField(max_length=2, default='XX')
 
     def __str__(self):
         return self.name
@@ -57,7 +57,7 @@ class Book(models.Model):
         validators=[MinValueValidator(1), MaxValueValidator(5)])
     author = models.ForeignKey(Author, on_delete=models.CASCADE, null=True, related_name="books")
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE, null=True, related_name="books")
-    published_countries = models.ManyToManyField(Country, null=False)
+    published_countries = models.ManyToManyField(Country, related_name="books")
     is_bestselling = models.BooleanField(default=False)
     # Add a slug field to the Book model
     slug = models.SlugField(default="", 
