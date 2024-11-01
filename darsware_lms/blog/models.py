@@ -16,10 +16,13 @@ class Author(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
+    
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"
 
     
     def __str__(self):
-        return self.first_name
+        return self.full_name()
 
 
 class Post(models.Model):
