@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "students",  # students app
     "books",  # books app
     "blog",  # blog app
     "courses",  # courses app

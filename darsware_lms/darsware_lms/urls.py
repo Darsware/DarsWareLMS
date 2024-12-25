@@ -24,4 +24,5 @@ urlpatterns = [
     path("subjects/", include("subjects.urls")),  # /subjects/
     path("blog/", include("blog.urls")),  # /blog/
     path("books/", include("books.urls")),  # /books/
+    path("students/", include("students.urls")),  # /students/
 ]
