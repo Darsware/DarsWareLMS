@@ -26,7 +26,3 @@ admin.site.register(Author, AuthorAdmin)
 admin.site.register(Publisher)
 admin.site.register(Address)
 admin.site.register(Country)
-
-
-
-
