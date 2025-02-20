@@ -6,8 +6,9 @@ from .models import Post, Author, Tag
 
 # Create class admin that extends admin.ModelAdmin
 class PostAdmin(admin.ModelAdmin):
-    list_filter = ("author", "tags", "date",)
+    list_filter = ("author", "tags", "date",) # values in tuple should have the same name as the fields in the model
     list_display= ("title", "author", "date",)
+    prepopulated_fields = {"slug": ("title",)} # Automatically populate the slug field based on the title field
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Author)
