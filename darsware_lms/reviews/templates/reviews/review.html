@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      {% load static %}
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Your Review</title>
+
+      <!--link to bootstrap css from css folder-->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  </head>
+  <body>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <!-- Add card class div -->
+                    <div class="card">
+                        <div class="card-body shadow">
+
+                            <!-- Add a form for users' feedback -->
+                             <form action="{% url 'review' %}" method="POST">
+                                 {% csrf_token %}
+                                 {% for field in form %}
+                                 <div class="mb-3 {% if field.errors %}error{% endif %}">
+                                     <div class="form-label lead">
+                                         <!--This will render the form field label-->
+                                        {{ field.label_tag }}
+                                     </div>
+                                         {{ field }}
+                                         {{ field.errors }}
+                                 </div>
+                                 {% endfor %}
+
+                                 <button class="btn btn-dark" type="submit">Send</button>
+                             </form> <!-- form ends here -->
+                        </div> <!-- Card body ends here -->
+                    </div> <!-- Card ends here -->
+                </div>
+            </div>
+        </div>
+
+      <!--link to bootstrap js from js folder-->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  </body>
+</html>
