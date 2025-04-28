@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.views.generic import TemplateView
+
 from .forms import ReviewForm
 from .models import Review
 from django.views import View
@@ -71,7 +73,32 @@ class ReviewView(View):
 #         "form": form # the validated form
 #     })
 
-def thank_you(request):
-    """This function renders the thank you page."""
-    return render(request, "reviews/thank_you.html")
+class ThankYouView(TemplateView):
+    """This class-based view handles the thank you page."""
 
+    template_name = "reviews/thank_you.html"
+
+    # Method overriding from TemplateView.
+    # It returns a dictionary containing data (called "context")
+    # that you want to make available within the template (thank_you.html).
+    def get_context_data(self, **kwargs):
+        """Add context data to the template."""
+        context = super().get_context_data(**kwargs)
+        context["message"] = "Thank you for your feedback!"
+        return context
+
+# def thank_you(request):
+#     """This function renders the thank you page."""
+#     return render(request, "reviews/thank_you.html")
+
+class ReviewsListView(TemplateView):
+    template_name = "reviews/reviews_list.html"
+    # Method overriding from TemplateView.
+    def get_context_data(self, **kwargs):
+        """Add context data to the template."""
+        context = super().get_context_data(**kwargs)
+        # Get all reviews from the database
+        reviews = Review.objects.all() # import Review model from .models.py
+        # Add the reviews fetched from the database to the context as a new key
+        context["reviews"] = reviews
+        return context
