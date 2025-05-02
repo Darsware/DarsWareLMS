@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView
+from django.views.generic import ListView, DetailView
 
 from .forms import ReviewForm
 from .models import Review
 from django.views import View
+from django.views.generic import ListView
 
 
 
@@ -87,18 +89,80 @@ class ThankYouView(TemplateView):
         context["message"] = "Thank you for your feedback!"
         return context
 
+###1. Function View ######
 # def thank_you(request):
 #     """This function renders the thank you page."""
 #     return render(request, "reviews/thank_you.html")
 
-class ReviewsListView(TemplateView):
-    template_name = "reviews/reviews_list.html"
-    # Method overriding from TemplateView.
-    def get_context_data(self, **kwargs):
-        """Add context data to the template."""
-        context = super().get_context_data(**kwargs)
-        # Get all reviews from the database
-        reviews = Review.objects.all() # import Review model from .models.py
-        # Add the reviews fetched from the database to the context as a new key
-        context["reviews"] = reviews
-        return context
+
+
+#####2. Template Class-based View ######
+# class ReviewsListView(TemplateView):
+#     template_name = "reviews/reviews_list.html"
+#     # Method overriding from TemplateView.
+#     def get_context_data(self, **kwargs):
+#         """Add context data to the template."""
+#         context = super().get_context_data(**kwargs)
+#         # Get all reviews from the database
+#         reviews = Review.objects.all() # import Review model from .models.py
+#         # Add the reviews fetched from the database to the context as a new key
+#         context["reviews"] = reviews
+#         return context
+
+
+##### 3. ListView Class-based view ######
+class ReviewsListView(ListView):
+    """This class-based view handles the list of reviews."""
+
+    model = Review  # Specify the model to use
+    template_name = "reviews/reviews_list.html"  # Specify the template to use
+    context_object_name = "reviews"  # Specify the name of the context variable to expose in the template
+    #
+    # def get_queryset(self):
+    #     """Override the get_queryset method to customize the queryset."""
+    #     # You can customize the queryset here if needed
+    #     base_query = super().get_queryset()
+    #     # For example, you can filter the reviews based on some criteria
+    #     # filtered_data = base_query.filter(rating__gte=3)  # Example: filter reviews with rating >= 3
+    #     # return filtered_data # When reload the page, it will show the filtered data only
+    #     return base_query
+
+
+
+
+
+
+# Create a view class for the single review page
+### 1. Using TemplateView class view ####
+# class SingleReviewView(TemplateView):
+#     template_name = "reviews/single_review.html"
+#
+#     def get_context_data(self, **kwargs):
+#         """Add context data to the template."""
+#         context = super().get_context_data(**kwargs)
+#         # kwargs is a dictionary containing the URL parameters
+#         # Get the review ID from the URL parameters
+#         review_id = kwargs.get("id")
+#         selected_review = Review.objects.get(pk=review_id)  # import Review model from .models.py
+#
+#         # Get all reviews from the database
+#         reviews = Review.objects.all()  # import Review model from .models.py
+#         # Add the reviews fetched from the database to the context as a new key
+#         context["review"] = selected_review
+#         return context
+
+
+### 2. Using DetailView class view ####
+class SingleReviewView(DetailView):
+    template_name = "reviews/single_review.html"
+    model = Review  # Specify the model to use
+    # - The model is `Review`.
+    # - `DetailView` automatically assigns the retrieved object to a context variable named `review`.
+    # Change url-pattern to use the primary key (pk) instead of id <int:pk>
+
+    # If you want to use a custom name for the context variable
+    # Instead of the default `review`, you can specify a custom name using the `context_object_name` attribute.
+    # For example:
+    # context_object_name = "my_custom_review_name"
+
+
